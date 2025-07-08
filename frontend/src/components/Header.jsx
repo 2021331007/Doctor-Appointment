@@ -16,7 +16,7 @@ const Header = () => {
                 <p>Simply browse through our extensive list of trusted doctors,<br />
 schedule your appointment hassle-free.</p>
             </div>
-            <a href="">
+            <a href="#speciality">
                 Book appointment <img src={assets.arrow_icon} alt="" />
             </a>
         </div>
