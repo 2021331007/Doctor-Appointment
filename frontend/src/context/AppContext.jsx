@@ -8,9 +8,11 @@ export const AppContext = createContext();
 
 // 2. Create the context provider
 const AppContextProvider = ({ children }) => {
-  const value = {
-    doctors
-  };
+  
+  const currencySymbol = '$'
+const value = {
+  doctors, currencySymbol
+};
 
   return (
     <AppContext.Provider value={value}>
