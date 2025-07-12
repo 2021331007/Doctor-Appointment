@@ -1,18 +1,28 @@
-import React, { useContext } from 'react'
-
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
-const TopDoctors = () => {
-    const navigate=useNavigate()
-    const {doctors}=useContext(AppContext)
+const RelatedDoctors = ({speciality,docId}) => {
+
+const {doctors}=useContext(AppContext)
+const navigate=useNavigate()
+
+const [relDoc,setRelDocs]=useState([])
+useEffect(()=>{
+    if(doctors.length>0 && speciality ){
+        const doctorsData=doctors.filter((doc)=>doc.speciality===speciality&& doc._id!=doc.Id)
+        setRelDocs(doctorsData)
+    }
+},[doctors,speciality])
+
+
 
   return (
     <div>
         <h1>Top Doctors to Book</h1>
         <p>Simply browse through our extensive list of trusted doctors.</p>
         <div>
-            {doctors.slice(0,10).map((item,index)=>(
+            {relDoc.slice(0,5).map((item,index)=>(
             <div onClick={()=>{navigate(`/appointment/${item._id}`);scrollTo(0,0)}} key={index}>
                 <img src={item.image} alt="" />
                 <div>
@@ -30,4 +40,4 @@ const TopDoctors = () => {
   )
 }
 
-export default TopDoctors
+export default RelatedDoctors

@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext, use } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 import { assets } from '../assets/assets'
+import RelatedDoctors from '../components/RelatedDoctors'
 
 const Appointment = () => {
 
@@ -125,7 +126,9 @@ const Appointment = () => {
         </div>
         <button>Book an appointment</button>
       </div>
-
+          {/* related doctors component */}
+          <RelatedDoctors docId={docId} speciality={docInfo.speciality}/>
+          
     </div>
   )
 }
