@@ -47,7 +47,7 @@ const Navbar = () => {
           :  <button onClick={()=>navigate('/login')}>Create account</button>
 
         }
-       
+        <img onClick={()=>setShowMenu(true)} src={assets.menu_icon} alt="" />
       </div>
     </div>
   );
