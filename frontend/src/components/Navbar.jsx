@@ -48,6 +48,19 @@ const Navbar = () => {
 
         }
         <img onClick={()=>setShowMenu(true)} src={assets.menu_icon} alt="" />
+        {/* mobile menu */}
+        <div>
+          <div>
+            <img src={assets.logo} alt="" />
+            <img onClick={()=>setShowMenu(false)} src={assets.cross_icon} alt="" />
+          </div>
+          <ul>
+            <NavLink onClick={()=>setShowMenu(false)} to='/'><p>HOME</p></NavLink>
+            <NavLink onClick={()=>setShowMenu(false)} to='/doctors'><p>ALL DOCTORS</p></NavLink>
+            <NavLink onClick={()=>setShowMenu(false)} to='about'><p>ABOUT</p></NavLink>
+            <NavLink onClick={()=>setShowMenu(false)} to='/contact'><p>CONTACT</p></NavLink>
+          </ul>
+        </div>
       </div>
     </div>
   );

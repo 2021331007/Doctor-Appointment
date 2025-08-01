@@ -6,6 +6,8 @@ const Doctors = () => {
   const { speciality } = useParams()
  
   const [filterDoc,setFilterDoc]=useState([])
+  const [showFilter,setShowFilter]=useState(false)
+
   const navigate=useNavigate()
   const { doctors}=useContext(AppContext)
 
@@ -24,6 +26,7 @@ applyFilter()
     <div>
         <p>Browse through the doctors specialist.</p>
         <div>
+          <button onClick={()=>setShowFilter(prev=>!prev)}>Filters</button>
           <div>
             <p onClick={()=>speciality==='General physician'? navigate('/doctors/General physician') : navigate('/doctors')}>General physician</p>
             <p onClick={()=>speciality==='Gynecologist'? navigate('/doctors') : navigate('/doctors/Gynecologist')}>Gynecologist</p>
